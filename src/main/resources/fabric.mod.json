@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "skybizz",
+  "version": "0.0.1",
+
+  "name": "Skybizz",
+  "description": "A 1.19.4 Hypixel Skyblock Mod that aims to port some of the most popular Mod Features to modern Minecraft",
+  "authors": [
+    "Sucukya"
+  ],
+  "contact": {
+    "homepage": "Soon",
+    "sources": ""
+  },
+
+  "license": "MIT License",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.sucukya.skybizz.Skybizz"
+    ]
+  },
+  "mixins": [
+    "skybizz.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric-api": "*",
+    "minecraft": "~1.19.4",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
