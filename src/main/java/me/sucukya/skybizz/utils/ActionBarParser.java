@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class ActionBarParser implements HudRenderCallback{
-
     static String health = "";
     static int healthColor = 0;
 
@@ -32,7 +31,6 @@ public class ActionBarParser implements HudRenderCallback{
             if(segment.length() > 0) {
                 color = String.valueOf(segment.charAt(0));
             }
-            player.sendMessage(Text.of(segment));
 
             String stripped = TextUtils.stripColor("§" + segment);
             if(stripped.contains("❤")) {
@@ -64,8 +62,7 @@ public class ActionBarParser implements HudRenderCallback{
     public void onHudRender(MatrixStack matrixStack, float tickDelta) {
         DrawText gui = new DrawText();
         RenderSystem.setShaderColor(1.0f,1.0f,1.0f,1.0f);
-
         matrixStack.push();
-        gui.drawStat(matrixStack,Text.literal(health),200,250,healthColor);
+        gui.drawStat(matrixStack,Text.literal(health),Values.healthX, Values.healthY,healthColor);
     }
 }

@@ -18,9 +18,8 @@ public class DrawText {
 
     public void drawStat(MatrixStack stack, Text text, float x, float y, int color) {
         MatrixStack stackToUse = new MatrixStack();
-        stackToUse.translate(1,1,1);
         stackToUse.multiplyPositionMatrix(stack.peek().getPositionMatrix());
-        stackToUse.scale(1.5f,1.5f,1.5f);
-        fontRenderer.draw(stackToUse,text,y,y,color);
+        stackToUse.scale(1.5f,1.5f,0.5f);
+        fontRenderer.draw(stackToUse,text,x,y,color);
     }
 }
