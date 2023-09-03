@@ -16,10 +16,10 @@ public class DrawText {
         fontRenderer = minecraft.textRenderer;
     }
 
-    public void drawStat(MatrixStack stack, Text text, float x, float y, int color) {
+    public void drawStat(MatrixStack stack, Text text, float x, float y, int color, float scaleX, float scaleY) {
         MatrixStack stackToUse = new MatrixStack();
         stackToUse.multiplyPositionMatrix(stack.peek().getPositionMatrix());
-        stackToUse.scale(1.5f,1.5f,0.5f);
+        stackToUse.scale(scaleX,scaleY,0.5f);
         fontRenderer.draw(stackToUse,text,x,y,color);
     }
 }

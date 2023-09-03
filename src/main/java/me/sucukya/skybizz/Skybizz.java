@@ -3,7 +3,9 @@ package me.sucukya.skybizz;
 import com.mojang.brigadier.CommandDispatcher;
 import lombok.Getter;
 import me.sucukya.skybizz.commands.Move;
+import me.sucukya.skybizz.commands.Scale;
 import me.sucukya.skybizz.commands.TestCommand;
+import me.sucukya.skybizz.commands.ToggleElements;
 import me.sucukya.skybizz.events.UseItemHandler;
 import me.sucukya.skybizz.utils.ActionBarParser;
 import me.sucukya.skybizz.utils.SkybizzConfig;
@@ -27,7 +29,9 @@ public class Skybizz implements ModInitializer {
 	public static final SkybizzConfig CONFIG = SkybizzConfig.createAndLoad();
 	@Getter
     private static Skybizz instance;
-	public static final String MODID = "Skybizz";
+	public static final String MODID = "skybizz";
+
+	public static final String chatPrefix = "§6[§bSkyBizz§6]§f ";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -37,7 +41,7 @@ public class Skybizz implements ModInitializer {
 	}
 	@Override
 	public void onInitialize() {
-		CONFIG.load();
+		//CONFIG.load();
 		Static.initialize();
 		UseItemCallback.EVENT.register(new UseItemHandler());
 		HudRenderCallback.EVENT.register(new ActionBarParser());
@@ -49,6 +53,8 @@ public class Skybizz implements ModInitializer {
 	public static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher,CommandRegistryAccess registryAccess) {
 		Move.register(dispatcher);
 		TestCommand.register(dispatcher);
+		Scale.register(dispatcher);
+		ToggleElements.register(dispatcher);
 	}
 
 
